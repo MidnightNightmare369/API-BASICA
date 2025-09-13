@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Employees.Backend.Repository.Interfaces;
 
-public interface IEmployeesRepository 
+public interface IEmployeesRepository
 {
     Task<ActionResponse<IEnumerable<Employee>>> GetByNameAsync(Expression<Func<Employee, bool>> predicate);
 }

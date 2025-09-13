@@ -6,7 +6,7 @@ public interface IGenericRepository<T> where T : class
 {
     Task<ActionResponse<IEnumerable<T>>> GetAsync();
 
-    Task<ActionResponse<T>> GetByIdAsync(int id);    
+    Task<ActionResponse<T>> GetByIdAsync(int id);
 
     Task<ActionResponse<T>> AddAsync(T entity);
 

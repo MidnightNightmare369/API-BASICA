@@ -20,7 +20,7 @@ public class GenericUnitOfWork<T> : IGenericUnitOfWork<T> where T : class
 
     public async Task<ActionResponse<T>> DeleteAsync(int id)
     {
-       return await _repository.DeleteAsync(id);
+        return await _repository.DeleteAsync(id);
     }
 
     public async Task<ActionResponse<IEnumerable<T>>> GetAsync()

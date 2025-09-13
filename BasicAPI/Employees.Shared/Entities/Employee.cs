@@ -20,6 +20,6 @@ public class Employee
     public DateTime HireDate { get; set; }
 
     [Display(Name = "Salario")]
-    [MinLength(1000000, ErrorMessage = "El parametro {0} debe ser positivo y mayor a {1}.")]
+    [Range(1000000, double.MaxValue, ErrorMessage = "El salario debe ser minimo de 1000000 ")]
     public decimal Salary { get; set; }
 }
