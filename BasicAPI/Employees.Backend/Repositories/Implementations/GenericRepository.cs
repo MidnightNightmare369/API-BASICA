@@ -30,7 +30,8 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         }
         catch (DbUpdateException)
         {
-            return DbUpdateExceptionActionResponse();
+            return new ActionResponse<T>
+            { Message = "The log you tried to create already exists in the database." }; ;
         }
         catch (Exception ex)
         {
@@ -45,7 +46,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         if (row == null)
         {
             return new ActionResponse<T>
-            { Message = "The object you tried to delete does not exist in the database." };
+            { Message = "The log you tried to delete does not exist in the database." };
         }
 
         try
@@ -60,7 +61,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         catch
         {
             return new ActionResponse<T>
-            { Message = "The object you tried to delete is related to another table." };
+            { Message = "The log you tried to delete is related to another table." };
         }
     }
 
@@ -81,7 +82,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         if (row == null)
         {
             return new ActionResponse<T>
-            { Message = "The object you tried to get does not exist in the database." };
+            { Message = "The requested log does not exist in the database." };
         }
 
         return new ActionResponse<T>
@@ -104,17 +105,14 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
             };
         }
         catch (DbUpdateException)
-        { return DbUpdateExceptionActionResponse(); }
+        {
+            return new ActionResponse<T>
+            { Message = "The log you tried to update does not exists in the database." };
+        }
         catch (Exception ex)
         {
             return new ActionResponse<T>
             { Message = ex.Message };
         }
-    }
-
-    private ActionResponse<T> DbUpdateExceptionActionResponse()
-    {
-        return new ActionResponse<T>
-        { Message = "The object you tried to create or update already exists in the database." };
     }
 }

@@ -21,16 +21,6 @@ public class EmployeesRepository : GenericRepository<Employee>, IEmployeesReposi
     public async Task<ActionResponse<IEnumerable<Employee>>> GetByNameAsync(Expression<Func<Employee, bool>> predicate)
     {
         var x = await _entity.Where(predicate).ToListAsync();
-        if (x == null || x.Count == 0)
-        {
-            return new ActionResponse<IEnumerable<Employee>>
-            {
-                Message = "No employees found whose name contains the text section sent.",
-                WasSuccess = true,
-                Result = x
-            };
-        }
-
         return new ActionResponse<IEnumerable<Employee>>
         {
             WasSuccess = true,
