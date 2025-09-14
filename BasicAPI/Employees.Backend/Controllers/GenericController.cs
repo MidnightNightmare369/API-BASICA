@@ -64,6 +64,6 @@ public class GenericController<T> : Controller where T : class
         {
             return BadRequest(response.Message);
         }
-        return Ok(response.Result);
+        return Ok(response);
     }
 }
