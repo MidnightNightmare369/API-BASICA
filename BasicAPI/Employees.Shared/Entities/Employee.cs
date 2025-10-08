@@ -1,15 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Orders.Share.Interfaces;
+using System.ComponentModel.DataAnnotations;
 
 namespace Employees.Shared.Entities;
 
-public class Employee
+public class Employee : IEntityWithName
 {
     public int Id { get; set; }
 
     [Display(Name = "Nombre")]
     [MaxLength(30, ErrorMessage = "El parametro {0} debe tener un maximo de {1} caracteres.")]
     [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-    public string FirstName { get; set; } = null!;
+    public string Name { get; set; } = null!;
 
     [Display(Name = "Apellido")]
     [MaxLength(30, ErrorMessage = "El parametro {0} debe tener un maximo de {1} caracteres.")]

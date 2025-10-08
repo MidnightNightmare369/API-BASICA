@@ -19,7 +19,7 @@ public class EmployeesController : GenericController<Employee>
     public async Task<IActionResult> GetByNameAsync(string condition)
     {
         var response = await _employeeUnitOfWork.GetByNameAsync(
-            e => e.FirstName.ToLower().Contains(condition) || e.LastName.ToLower().Contains(condition)
+            e => e.Name.ToLower().Contains(condition) || e.LastName.ToLower().Contains(condition)
             );
 
         if (!response.WasSuccess)
