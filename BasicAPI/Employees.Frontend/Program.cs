@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMudServices();
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
-builder.Services.AddScoped(_ => new HttpClient { BaseAddress = new Uri("https://localhost:5076") });
+builder.Services.AddScoped(_ => new HttpClient { BaseAddress = new Uri("http://localhost:5076") });
 builder.Services.AddScoped<IRepository, Repository>();
 
 
