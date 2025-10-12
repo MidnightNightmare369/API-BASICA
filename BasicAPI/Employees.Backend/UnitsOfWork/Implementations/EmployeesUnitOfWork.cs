@@ -1,5 +1,6 @@
 ﻿using Employees.Backend.Repository.Interfaces;
 using Employees.Backend.UnitsOfWork.Interfaces;
+using Employees.Shared.DTOs;
 using Employees.Shared.Entities;
 using Employees.Shared.Responses;
 using System.Linq.Expressions;
@@ -19,4 +20,13 @@ public class EmployeesUnitOfWork : GenericUnitOfWork<Employee>, IEmployeesUnitOf
     {
         return await _repository.GetByNameAsync(predicate);
     }
+
+    public override async Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination) => await _repository.GetTotalRecordsAsync(pagination);
+
+    public override async Task<ActionResponse<IEnumerable<Employee>>> GetAsync(PaginationDTO pagination) => await _repository.GetAsync(pagination);
+
+    public override async Task<ActionResponse<IEnumerable<Employee>>> GetAsync() => await _repository.GetAsync();
+
+    public override async Task<ActionResponse<Employee>> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
+
 }

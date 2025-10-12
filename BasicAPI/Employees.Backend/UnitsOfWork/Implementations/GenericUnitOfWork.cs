@@ -24,27 +24,27 @@ public class GenericUnitOfWork<T> : IGenericUnitOfWork<T> where T : class
         return await _repository.GetTotalRecordsAsync(pagination);
     }
 
-    public async Task<ActionResponse<T>> AddAsync(T entity)
+    public virtual async Task<ActionResponse<T>> AddAsync(T entity)
     {
         return await _repository.AddAsync(entity);
     }
 
-    public async Task<ActionResponse<T>> DeleteAsync(int id)
+    public virtual async Task<ActionResponse<T>> DeleteAsync(int id)
     {
         return await _repository.DeleteAsync(id);
     }
 
-    public async Task<ActionResponse<IEnumerable<T>>> GetAsync()
+    public virtual async Task<ActionResponse<IEnumerable<T>>> GetAsync()
     {
         return await _repository.GetAsync();
     }
 
-    public async Task<ActionResponse<T>> GetByIdAsync(int id)
+    public virtual async Task<ActionResponse<T>> GetByIdAsync(int id)
     {
         return await _repository.GetByIdAsync(id);
     }
 
-    public async Task<ActionResponse<T>> UpdateAsync(T entity)
+    public virtual async Task<ActionResponse<T>> UpdateAsync(T entity)
     {
         return await _repository.UpdateAsync(entity);
     }

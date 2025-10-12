@@ -42,7 +42,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         };
     }
 
-    public async Task<ActionResponse<T>> AddAsync(T entity)
+    public virtual async Task<ActionResponse<T>> AddAsync(T entity)
     {
         try
         {
@@ -66,7 +66,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         }
     }
 
-    public async Task<ActionResponse<T>> DeleteAsync(int id)
+    public virtual async Task<ActionResponse<T>> DeleteAsync(int id)
     {
         var row = await _entity.FindAsync(id);
         if (row == null)
@@ -91,7 +91,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         }
     }
 
-    public async Task<ActionResponse<IEnumerable<T>>> GetAsync()
+    public virtual async Task<ActionResponse<IEnumerable<T>>> GetAsync()
     {
         var row = await _entity.ToListAsync();
         return new ActionResponse<IEnumerable<T>>
@@ -101,7 +101,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         };
     }
 
-    public async Task<ActionResponse<T>> GetByIdAsync(int id)
+    public virtual async Task<ActionResponse<T>> GetByIdAsync(int id)
     {
         var row = await _entity.FindAsync(id);
 
@@ -118,7 +118,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         };
     }
 
-    public async Task<ActionResponse<T>> UpdateAsync(T entity)
+    public virtual async Task<ActionResponse<T>> UpdateAsync(T entity)
     {
         try
         {
