@@ -1,0 +1,65 @@
+﻿<EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+
+    <MudTextField Label="First name"
+                  @bind-Value="@Employee.Name" 
+                  For="@(() => Employee.Name)"
+                  Class="mb-4" />
+
+    <MudTextField Label="Last name"
+                  @bind-Value="@Employee.LastName"
+                  For="@(() => Employee.LastName)"
+                  Class="mb-4" />
+
+    <MudSelect T="bool"
+               Label="Active status"
+               @bind-Value="Employee.IsActive"
+               Class="mb-2">
+        <MudSelectItem Value="true">Active</MudSelectItem>
+        <MudSelectItem Value="false">Inactive</MudSelectItem>
+    </MudSelect>
+
+    <MudDatePicker Label="Hire date"
+                   Date="@(Employee.HireDate)"
+                   DateChanged="@(x => Employee.HireDate = x ?? DateTime.Today)"
+                   MaxDate="@(DateTime.Today.AddYears(5))"
+                   DisableToolbar="true"
+                   AutoClose="true"
+                   Class="mb-4" /> 
+
+    <MudNumericField T="decimal"
+                     Label="Salary"
+                     @bind-Value="Employee.Salary"
+                     For="@(() => Employee.Salary)"
+                     Class="mb-4"
+                     Adornment="Adornment.Start"
+                     AdornmentText="$"
+                     Culture="@(new System.Globalization.CultureInfo("es-CO"))"
+                     Format="N2" />
+
+    <MudButton Variant="Variant.Outlined"
+               StartIcon="@Icons.Material.Filled.ArrowBack"
+               Color="Color.Info"
+               OnClick="ReturnAction">
+        <MudHidden xs="true">
+            Cancel
+        </MudHidden>
+    </MudButton>
+
+    <MudButton Variant="Variant.Outlined"
+               StartIcon="@Icons.Material.Filled.Check"
+               Color="Color.Primary"
+               ButtonType="ButtonType.Submit">
+        <MudHidden xs="true">
+            Save changes
+        </MudHidden>
+    </MudButton>
+</EditForm>
+
+@code {
+    private void OnIsActiveChanged(bool value)
+    {
+        Employee.IsActive = value;
+        editContext.NotifyFieldChanged(new FieldIdentifier(Employee, nameof(Employee.IsActive)));
+    }
+}

@@ -11,7 +11,7 @@ public partial class Loading
         base.OnParametersSet();
         if (string.IsNullOrEmpty(Label))
         {
-            Label = "Por favor espera...";
+            Label = "Please wait...";
         }
     }
 }

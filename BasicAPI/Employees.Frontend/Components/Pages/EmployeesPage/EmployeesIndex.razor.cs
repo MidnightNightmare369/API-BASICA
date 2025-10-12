@@ -101,11 +101,11 @@ public partial class EmployeesIndex
             var parameters = new DialogParameters
             {
                 { "Id", id }
-            }; dialog = await DialogService.ShowAsync<EmployeeEdit>("Editar empleado CAMBIAR", parameters, options);
+            }; dialog = await DialogService.ShowAsync<EmployeeEdit>("Edit employee", parameters, options);
         }
         else
         {
-            dialog = await DialogService.ShowAsync<EmployeeCreate>("Nuevo empleado CAMBIAR", options);
+            dialog = await DialogService.ShowAsync<EmployeeCreate>("New employee", options);
         }
 
         var result = await dialog.Result;
@@ -151,7 +151,7 @@ public partial class EmployeesIndex
         }
         await LoadTotalRecordsAsync();
         await table.ReloadServerData();
-        Snackbar.Add("Log deleted.", Severity.Success);
+        Snackbar.Add("Record successfully deleted.", Severity.Success);
     }
 
     private static string GetStatus(Boolean Status)
