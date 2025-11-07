@@ -1,4 +1,4 @@
-﻿namespace Orders.Share.Interfaces;
+﻿namespace Employees.Shared.Interfaces;
 
 public interface IEntityWithName
 {

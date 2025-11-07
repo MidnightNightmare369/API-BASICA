@@ -1,6 +1,6 @@
 ﻿using Employees.Backend.Data;
 using Employees.Backend.Helpers;
-using Employees.Backend.Repository.Interfaces;
+using Employees.Backend.Repositories.Interfaces;
 using Employees.Shared.DTOs;
 using Employees.Shared.Entities;
 using Employees.Shared.Responses;
@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.Metrics;
 using System.Linq.Expressions;
 
-namespace Employees.Backend.Repository.Implementations;
+namespace Employees.Backend.Repositories.Implementations;
 
 public class EmployeesRepository : GenericRepository<Employee>, IEmployeesRepository
 {
@@ -19,16 +19,6 @@ public class EmployeesRepository : GenericRepository<Employee>, IEmployeesReposi
     {
         _context = context;
         _entity = context.Set<Employee>();
-    }
-
-    public async Task<ActionResponse<IEnumerable<Employee>>> GetByNameAsync(Expression<Func<Employee, bool>> predicate)
-    {
-        var x = await _entity.Where(predicate).ToListAsync();
-        return new ActionResponse<IEnumerable<Employee>>
-        {
-            WasSuccess = true,
-            Result = x
-        };
     }
 
     public override async Task<ActionResponse<IEnumerable<Employee>>> GetAsync(PaginationDTO pagination)

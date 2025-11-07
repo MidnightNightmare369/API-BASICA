@@ -1,7 +1,7 @@
 ﻿using Employees.Shared.DTOs;
 using Employees.Shared.Responses;
 
-namespace Employees.Backend.Repository.Interfaces;
+namespace Employees.Backend.Repositories.Interfaces;
 
 public interface IGenericRepository<T> where T : class
 {

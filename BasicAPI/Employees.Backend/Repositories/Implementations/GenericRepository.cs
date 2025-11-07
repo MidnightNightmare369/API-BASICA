@@ -1,11 +1,11 @@
 ﻿using Employees.Backend.Data;
 using Employees.Backend.Helpers;
-using Employees.Backend.Repository.Interfaces;
+using Employees.Backend.Repositories.Interfaces;
 using Employees.Shared.DTOs;
 using Employees.Shared.Responses;
 using Microsoft.EntityFrameworkCore;
 
-namespace Employees.Backend.Repository.Implementations;
+namespace Employees.Backend.Repositories.Implementations;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : class
 {

@@ -14,6 +14,4 @@ public interface IEmployeesUnitOfWork
     Task<ActionResponse<Employee>> GetByIdAsync(int id);
 
     Task<ActionResponse<IEnumerable<Employee>>> GetAsync();
-
-    Task<ActionResponse<IEnumerable<Employee>>> GetByNameAsync(Expression<Func<Employee, bool>> predicate);
 }

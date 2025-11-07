@@ -3,7 +3,7 @@ using Employees.Shared.Entities;
 using Employees.Shared.Responses;
 using System.Linq.Expressions;
 
-namespace Employees.Backend.Repository.Interfaces;
+namespace Employees.Backend.Repositories.Interfaces;
 
 public interface IEmployeesRepository
 {
@@ -14,6 +14,4 @@ public interface IEmployeesRepository
     Task<ActionResponse<Employee>> GetByIdAsync(int id);
 
     Task<ActionResponse<IEnumerable<Employee>>> GetAsync();
-
-    Task<ActionResponse<IEnumerable<Employee>>> GetByNameAsync(Expression<Func<Employee, bool>> predicate);
 }

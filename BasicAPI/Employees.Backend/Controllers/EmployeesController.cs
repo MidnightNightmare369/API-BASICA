@@ -16,21 +16,6 @@ public class EmployeesController : GenericController<Employee>
         _employeeUnitOfWork = employeeUnitOfWork;
     }
 
-    [HttpGet("condition")]
-    public async Task<IActionResult> GetByNameAsync(string condition)
-    {
-        var response = await _employeeUnitOfWork.GetByNameAsync(
-            e => e.Name.ToLower().Contains(condition) || e.LastName.ToLower().Contains(condition)
-            );
-
-        if (!response.WasSuccess)
-        {
-            return BadRequest(response.Message);
-        }
-
-        return Ok(response.Result);
-    }
-
     [HttpGet("totalRecords")]
     public override async Task<IActionResult> GetTotalRecordsAsync([FromQuery] PaginationDTO pagination)
     {

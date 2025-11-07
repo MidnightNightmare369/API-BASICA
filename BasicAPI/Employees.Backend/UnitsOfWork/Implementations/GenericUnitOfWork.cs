@@ -1,4 +1,4 @@
-﻿using Employees.Backend.Repository.Interfaces;
+﻿using Employees.Backend.Repositories.Interfaces;
 using Employees.Backend.UnitsOfWork.Interfaces;
 using Employees.Shared.DTOs;
 using Employees.Shared.Responses;
