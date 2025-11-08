@@ -23,7 +23,7 @@ public class SeedDb
         await CheckFullEmployeesAsync();
         await CheckCountriesFullAsync();
         await CheckRolesAsync();
-        await CheckUserAsync("369", "Root", "Root", "admin@yopmail.com", "333 666 999", "03 06 09", UserType.Admin);
+        await CheckUserAsync("369", "Root", "Root", "root@yopmail.com", "333 666 999", "03 06 09", UserType.Admin);
     }
     
     private async Task<User> CheckUserAsync(string document, string firstName, string lastName, string email, string phone, string address, UserType userType)

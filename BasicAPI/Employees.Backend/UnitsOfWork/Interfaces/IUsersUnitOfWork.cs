@@ -1,13 +1,14 @@
-﻿using Employees.Shared.Entities;
+﻿using Employees.Shared.DTOs;
+using Employees.Shared.Entities;
 using Microsoft.AspNetCore.Identity;
 
 namespace Employees.Backend.UnitsOfWork.Interfaces;
 
 public interface IUsersUnitOfWork
 {
-    //Task<SignInResult> LoginAsync(LoginDTO model);
+    Task<SignInResult> LoginAsync(LoginDTO model);
 
-    //Task LogoutAsync();
+    Task LogoutAsync();
 
     Task<User> GetUserAsync(string email);
 

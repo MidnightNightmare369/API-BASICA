@@ -5,9 +5,11 @@ using Employees.Frontend.Components.Shared;
 using Employees.Frontend.Repositories;
 using Employees.Shared.Entities;
 using System.Net;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Employees.Frontend.Components.Pages.Countries;
 
+[Authorize(Roles = "Admin")]
 public partial class CountryDetails
 {
     private Country? country;

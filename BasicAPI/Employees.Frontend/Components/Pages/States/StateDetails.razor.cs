@@ -1,13 +1,15 @@
-using Microsoft.AspNetCore.Components;
-using MudBlazor;
 using Employees.Frontend.Components.Pages.Cities;
 using Employees.Frontend.Components.Shared;
 using Employees.Frontend.Repositories;
 using Employees.Shared.Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components;
+using MudBlazor;
 using System.Net;
 
 namespace Employees.Frontend.Components.Pages.States;
 
+[Authorize(Roles = "Admin")]
 public partial class StateDetails
 {
     private State? state;
