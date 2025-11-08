@@ -16,25 +16,25 @@ else
               FixedFooter="true">
         <ToolBarContent>
             <div class="d-flex justify-content-between">
-                <MudText Typo="Typo.h6" Class="me-4">Países</MudText>
+                <MudText Typo="Typo.h6" Class="me-4">Countries</MudText>
                 <MudButton Variant="Variant.Outlined"
                            EndIcon="@Icons.Material.Filled.Add"
                            Color="Color.Info" OnClick="@(() => ShowModalAsync())">
-                    Nuevo
+                    New Country
                 </MudButton>
             </div>
             <MudSpacer />
             <FilterComponent ApplyFilter="SetFilterValue" />
         </ToolBarContent>
         <HeaderContent>
-            <MudTh>País</MudTh>
-            <MudTh style="width: 100px;">Estados</MudTh>
-            <MudTh style="width: 270px;">Acciones</MudTh>
+            <MudTh>Country</MudTh>
+            <MudTh style="width: 100px;">States</MudTh>
+            <MudTh style="width: 270px;">Actions</MudTh>
         </HeaderContent>
         <RowTemplate>
             <MudTd>@context.Name</MudTd>
-            <MudTd DataLabel="Estados">
-                <MudTooltip Text="Estados">
+            <MudTd DataLabel="States">
+                <MudTooltip Text="States">
                     <MudButton Variant="Variant.Filled"         
                             EndIcon="@Icons.Material.Filled.Map" 
                             Color="Color.Info" 
@@ -45,14 +45,14 @@ else
                 </MudTooltip>
             </MudTd>
             <MudTd>
-                <MudTooltip Text="Editar">
+                <MudTooltip Text="Edit">
                     <MudButton Variant="Variant.Filled"
                                Color="Color.Warning"
                                OnClick="@(() => ShowModalAsync(context.Id, true))">
                         <MudIcon Icon="@Icons.Material.Filled.Edit" />
                     </MudButton>
                 </MudTooltip>
-                <MudTooltip Text="Borrar">
+                <MudTooltip Text="Delete">
                     <MudButton Variant="Variant.Filled"
                                Color="Color.Error"
                                OnClick="@(() => DeleteAsync(@context))">
@@ -62,12 +62,12 @@ else
             </MudTd>
         </RowTemplate>
         <NoRecordsContent>
-            <MudText>"No hay registros"</MudText>
+            <MudText>"No records found"</MudText>
         </NoRecordsContent>
         <PagerContent>
-            <MudTablePager RowsPerPageString="Número de registros"
+            <MudTablePager RowsPerPageString="Number of records"
                            PageSizeOptions="pageSizeOptions"
-                           AllItemsText="Todo"
+                           AllItemsText="All"
                            InfoFormat="@infoFormat" />
         </PagerContent>
     </MudTable>

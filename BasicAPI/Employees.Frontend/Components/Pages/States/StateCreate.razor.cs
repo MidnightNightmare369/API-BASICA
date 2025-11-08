@@ -27,7 +27,7 @@ public partial class StateCreate
         }
 
         Return();
-        Snackbar.Add("Registro creado", Severity.Success);
+        Snackbar.Add("State successfully created", Severity.Success);
     }
 
     private void Return()

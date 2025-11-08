@@ -49,7 +49,7 @@ public partial class CountryEdit
         }
 
         Return();
-        Snackbar.Add("Registro guardado.", Severity.Success);
+        Snackbar.Add("Country successfully saved.", Severity.Success);
     }
 
     private void Return()

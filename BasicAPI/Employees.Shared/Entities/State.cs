@@ -8,8 +8,8 @@ public class State : IEntityWithName
     public int Id { get; set; }
 
     [Display(Name = "Estado")]
-    [MaxLength(100, ErrorMessage = "El campo {0} no puede tener mas de {1} caracteres.")]
-    [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+    [MaxLength(100, ErrorMessage = "The {0} parameter must have a maximum of {1} characters.")]
+    [Required(ErrorMessage = "The {0} field is required.")]
     public string Name { get; set; } = null!;
 
     //Relacion con Country

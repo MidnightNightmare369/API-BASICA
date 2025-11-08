@@ -90,7 +90,7 @@ public class StatesRepository : GenericRepository<State>, IStatesRepository
         {
             return new ActionResponse<State>
             {
-                Message = "No se encontro el registro."
+                Message = "Record not found"
             };
         }
 

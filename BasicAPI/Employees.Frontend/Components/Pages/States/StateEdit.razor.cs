@@ -49,7 +49,7 @@ public partial class StateEdit
         }
 
         Return();
-        Snackbar.Add("Registro guardado.", Severity.Success);
+        Snackbar.Add("State successfully saved", Severity.Success);
     }
 
     private void Return()

@@ -120,7 +120,7 @@ public partial class EmployeesIndex
     {
         var parameters = new DialogParameters
         {
-            { "Message", $"Are you sure to delete employee: {Employee.Name}" }
+            { "Message", $"Are you sure to delete the employee: {Employee.Name}" }
         };
         var options = new DialogOptions
         {
@@ -151,7 +151,7 @@ public partial class EmployeesIndex
         }
         await LoadTotalRecordsAsync();
         await table.ReloadServerData();
-        Snackbar.Add("Record successfully deleted.", Severity.Success);
+        Snackbar.Add("Employee successfully deleted.", Severity.Success);
     }
 
     private static string GetStatus(Boolean Status)

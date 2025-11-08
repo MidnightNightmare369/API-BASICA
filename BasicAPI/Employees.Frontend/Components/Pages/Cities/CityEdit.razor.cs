@@ -49,7 +49,7 @@ public partial class CityEdit
         }
 
         Return();
-        Snackbar.Add("Registro guardado.", Severity.Success);
+        Snackbar.Add("City successfully saved", Severity.Success);
     }
 
     private void Return()

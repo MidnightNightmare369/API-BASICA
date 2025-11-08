@@ -1,4 +1,7 @@
-﻿using Employees.Shared.Entities;
+﻿using Employees.Backend.UnitsOfWork.Implementations;
+using Employees.Backend.UnitsOfWork.Interfaces;
+using Employees.Shared.Entities;
+using Employees.Shared.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace Employees.Backend.Data;
@@ -6,10 +9,12 @@ namespace Employees.Backend.Data;
 public class SeedDb
 {
     private readonly DataContext _context;
+    private readonly IUsersUnitOfWork _usersUnitOfWork;
 
-    public SeedDb(DataContext context)
+    public SeedDb(DataContext context, IUsersUnitOfWork usersUnitOfWork)
     {
         _context = context;
+        _usersUnitOfWork = usersUnitOfWork;
     }
 
     public async Task SeedAsync()
@@ -17,11 +22,10 @@ public class SeedDb
         await _context.Database.EnsureCreatedAsync();
         await CheckFullEmployeesAsync();
         await CheckCountriesFullAsync();
-        //await CheckRolesAsync();
-        //await CheckUserAsync("1010", "Juan", "Zuluaga", "zulu@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", UserType.Admin);
+        await CheckRolesAsync();
+        await CheckUserAsync("369", "Root", "Root", "admin@yopmail.com", "333 666 999", "03 06 09", UserType.Admin);
     }
-
-    /*
+    
     private async Task<User> CheckUserAsync(string document, string firstName, string lastName, string email, string phone, string address, UserType userType)
     {
         var user = await _usersUnitOfWork.GetUserAsync(email);
@@ -52,8 +56,7 @@ public class SeedDb
         await _usersUnitOfWork.CheckRoleAsync(UserType.Admin.ToString());
         await _usersUnitOfWork.CheckRoleAsync(UserType.User.ToString());
     }
-    */
-
+    
     private async Task CheckCountriesFullAsync()
     {
         if (!_context.Countries.Any())

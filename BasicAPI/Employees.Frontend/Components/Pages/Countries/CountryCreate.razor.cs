@@ -24,7 +24,7 @@ public partial class CountryCreate
         }
 
         Return();
-        Snackbar.Add("Registro creado", Severity.Success);
+        Snackbar.Add("Country successfully created", Severity.Success);
     }
 
     private void Return()

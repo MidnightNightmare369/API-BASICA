@@ -17,13 +17,6 @@ public class CountriesRepository : GenericRepository<Country>, ICountriesReposit
         _context = context;
     }
 
-    public async Task<IEnumerable<Country>> GetComboAsync()
-    {
-        return await _context.Countries
-            .OrderBy(c => c.Name)
-            .ToListAsync();
-    }
-
     /*
     public override async Task<IEnumerable<Country>> GetComboAsync()
     {
@@ -94,7 +87,7 @@ public class CountriesRepository : GenericRepository<Country>, ICountriesReposit
         {
             return new ActionResponse<Country>
             {
-                Message = "No se encontro el registro."
+                Message = "Record not found"
             };
         }
 

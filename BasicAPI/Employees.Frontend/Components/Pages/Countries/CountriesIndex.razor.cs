@@ -107,11 +107,11 @@ public partial class CountriesIndex
             {
                 { "Id", id }
             };
-            dialog = await DialogService.ShowAsync<CountryEdit>("Editar país", parameters, options);
+            dialog = await DialogService.ShowAsync<CountryEdit>("Edit Country", parameters, options);
         }
         else
         {
-            dialog = await DialogService.ShowAsync<CountryCreate>("Nuevo país", options);
+            dialog = await DialogService.ShowAsync<CountryCreate>("New Country", options);
         }
 
         var result = await dialog.Result;
@@ -126,7 +126,7 @@ public partial class CountriesIndex
     {
         var parameters = new DialogParameters
         {
-            { "Message", $"Estas seguro de borrar el país: {country.Name}" }
+            { "Message", $"Are you sure to delete the country: {country.Name}" }
         };
         var options = new DialogOptions
         {
@@ -134,7 +134,7 @@ public partial class CountriesIndex
             MaxWidth = MaxWidth.ExtraSmall,
             CloseOnEscapeKey = true
         };
-        var dialog = await DialogService.ShowAsync<ConfirmDialog>("Confirmacion", parameters, options);
+        var dialog = await DialogService.ShowAsync<ConfirmDialog>("Confirmation", parameters, options);
         var result = await dialog.Result;
         if (result!.Canceled)
         {
@@ -157,6 +157,6 @@ public partial class CountriesIndex
         }
         await LoadTotalRecordsAsync();
         await table.ReloadServerData();
-        Snackbar.Add("Registro borrado", Severity.Success);
+        Snackbar.Add("Country successfully deleted.", Severity.Success);
     }
 }

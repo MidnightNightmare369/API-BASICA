@@ -142,7 +142,7 @@ public partial class CountryDetails
             var parameters = new DialogParameters
             {
                 { "Id", id }
-            }; dialog = await DialogService.ShowAsync<StateEdit>("Editar estado", parameters, options);
+            }; dialog = await DialogService.ShowAsync<StateEdit>("Edit state", parameters, options);
         }
         else
         {
@@ -150,7 +150,7 @@ public partial class CountryDetails
                 {
                     { "CountryId", CountryId }
                 };
-            dialog = await DialogService.ShowAsync<StateCreate>("Nuevo estado", parameters, options);
+            dialog = await DialogService.ShowAsync<StateCreate>("New state", parameters, options);
         }
 
         var result = await dialog.Result;
@@ -175,10 +175,10 @@ public partial class CountryDetails
     {
         var parameters = new DialogParameters
             {
-                { "Message", $"¿Estas seguro de que quieres eliminar el estado {state.Name}?" }
+                { "Message", $"Are you sure to delete the state: {state.Name}?" }
             };
         var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall, CloseOnEscapeKey = true };
-        var dialog = await DialogService.ShowAsync<ConfirmDialog>("Confirmacion", parameters, options);
+        var dialog = await DialogService.ShowAsync<ConfirmDialog>("Confirmation", parameters, options);
         var result = await dialog.Result;
         if (result!.Canceled)
         {
@@ -194,6 +194,6 @@ public partial class CountryDetails
         }
         await LoadAsync();
         await table.ReloadServerData();
-        Snackbar.Add("Estado eliminado.", Severity.Success);
+        Snackbar.Add("State successfully deleted", Severity.Success);
     }
 }

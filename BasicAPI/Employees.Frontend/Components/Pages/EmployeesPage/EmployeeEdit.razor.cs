@@ -49,7 +49,7 @@ public partial class EmployeeEdit
         }
 
         Return();
-        Snackbar.Add("Employee successfully saved.", Severity.Success);
+        Snackbar.Add("Employee successfully saved", Severity.Success);
     }
 
     private void Return()

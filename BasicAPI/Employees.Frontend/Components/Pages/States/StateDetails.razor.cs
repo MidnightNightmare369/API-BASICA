@@ -143,7 +143,7 @@ public partial class StateDetails
             var parameters = new DialogParameters
             {
                 { "Id", id }
-            }; dialog = await DialogService.ShowAsync<CityEdit>("Editar Ciudad", parameters, options);
+            }; dialog = await DialogService.ShowAsync<CityEdit>("Edit city", parameters, options);
         }
         else
         {
@@ -151,7 +151,7 @@ public partial class StateDetails
                 {
                     { "StateId", StateId }
                 };
-            dialog = await DialogService.ShowAsync<CityCreate>("Nuevo Ciudad", parameters, options);
+            dialog = await DialogService.ShowAsync<CityCreate>("New city", parameters, options);
         }
 
         var result = await dialog.Result;
@@ -171,10 +171,10 @@ public partial class StateDetails
     {
         var parameters = new DialogParameters
             {
-                { "Message", $"¿Estas seguro de que quieres eliminar la ciudad {city.Name}?" }
+                { "Message", $"Are you sure to delete the city {city.Name}?" }
             };
         var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall, CloseOnEscapeKey = true };
-        var dialog = await DialogService.ShowAsync<ConfirmDialog>("Confirmaci�n", parameters, options);
+        var dialog = await DialogService.ShowAsync<ConfirmDialog>("Confirmation", parameters, options);
         var result = await dialog.Result;
         if (result!.Canceled)
         {
@@ -199,6 +199,6 @@ public partial class StateDetails
         }
         await LoadAsync();
         await table.ReloadServerData();
-        Snackbar.Add("Ciudad eliminada.", Severity.Success);
+        Snackbar.Add("City successfully deleted.", Severity.Success);
     }
 }

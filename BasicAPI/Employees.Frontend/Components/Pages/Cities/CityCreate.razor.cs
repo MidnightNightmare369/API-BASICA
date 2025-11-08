@@ -27,7 +27,7 @@ public partial class CityCreate
         }
 
         Return();
-        Snackbar.Add("Registro creado", Severity.Success);
+        Snackbar.Add("City successfully created", Severity.Success);
     }
 
     private void Return()
