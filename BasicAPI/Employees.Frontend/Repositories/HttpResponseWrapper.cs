@@ -25,7 +25,7 @@ public class HttpResponseWrapper<T>
         var statusCode = HttpResponseMessage.StatusCode;
         if (statusCode == HttpStatusCode.NotFound)
         {
-            return "Recurso no encontrado.";
+            return "Resource not found.";
         }
         if (statusCode == HttpStatusCode.BadRequest)
         {
@@ -33,13 +33,13 @@ public class HttpResponseWrapper<T>
         }
         if (statusCode == HttpStatusCode.Unauthorized)
         {
-            return "Tienes que estar logueado para ejecutar esta operación.";
+            return "You must be logged to perform this operation.";
         }
         if (statusCode == HttpStatusCode.Forbidden)
         {
-            return "No tienes permisos para hacer esta operación.";
+            return "You do not have permission to perform this operation..";
         }
 
-        return "Ha ocurrido un error inesperado.";
+        return "An unexpected error has occurred..";
     }
 }

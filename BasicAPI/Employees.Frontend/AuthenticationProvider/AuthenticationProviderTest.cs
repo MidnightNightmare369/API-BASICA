@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Claims;
 
-namespace Employees.Frontend.AuthenticationProviderTest;
+namespace Employees.Frontend.AuthenticationProvider;
 
 public class AuthenticationProviderTest : AuthenticationStateProvider
 {

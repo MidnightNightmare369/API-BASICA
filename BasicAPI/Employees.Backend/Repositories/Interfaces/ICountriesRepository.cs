@@ -6,7 +6,7 @@ namespace Employees.Backend.Repositories.Interfaces;
 
 public interface ICountriesRepository
 { 
-    //Task<IEnumerable<Country>> GetComboAsync();
+    Task<IEnumerable<Country>> GetComboAsync();
 
     Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination);
 

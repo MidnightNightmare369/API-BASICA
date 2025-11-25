@@ -17,16 +17,14 @@ public class StatesRepository : GenericRepository<State>, IStatesRepository
         _context = context;
     }
 
-    /*
-    public override async Task<IEnumerable<State>> GetComboAsync(int countryId)
+    public async Task<IEnumerable<State>> GetComboAsync(int countryId)
     {
         return await _context.States
             .Where(s => s.CountryId == countryId)
             .OrderBy(s => s.Name)
             .ToListAsync();
     }
-    */
-
+    
     public override async Task<ActionResponse<IEnumerable<State>>> GetAsync(PaginationDTO pagination)
     {
         var queryable = _context.States

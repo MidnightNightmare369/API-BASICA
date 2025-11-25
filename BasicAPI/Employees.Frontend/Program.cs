@@ -1,4 +1,4 @@
-using Employees.Frontend.AuthenticationProviderTest;
+using Employees.Frontend.AuthenticationProvider;
 using Employees.Frontend.Components;
 using Employees.Frontend.Repositories;
 using Microsoft.AspNetCore.Components.Authorization;

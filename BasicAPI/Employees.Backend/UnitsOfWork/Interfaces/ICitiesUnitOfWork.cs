@@ -6,7 +6,7 @@ namespace Employees.Backend.UnitsOfWork.Interfaces;
 
 public interface ICitiesUnitOfWork
 {
-    //Task<IEnumerable<City>> GetComboAsync(int stateId);
+    Task<IEnumerable<City>> GetComboAsync(int stateId);
 
     Task<ActionResponse<IEnumerable<City>>> GetAsync(PaginationDTO pagination);
 

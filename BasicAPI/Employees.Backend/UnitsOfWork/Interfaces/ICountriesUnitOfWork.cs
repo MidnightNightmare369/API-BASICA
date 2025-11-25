@@ -6,7 +6,7 @@ namespace Employees.Backend.UnitsOfWork.Interfaces;
 
 public interface ICountriesUnitOfWork
 {
-    //Task<IEnumerable<Country>> GetComboAsync();
+    Task<IEnumerable<Country>> GetComboAsync();
 
     Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination);
 
