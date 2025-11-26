@@ -33,18 +33,18 @@ public partial class AuthLinks
     private void ShowModalLogIn()
     {
         var closeOnEscapeKey = new DialogOptions() { CloseOnEscapeKey = true };
-        DialogService.ShowAsync<Login>("Inicio de Sesion", closeOnEscapeKey);
+        DialogService.ShowAsync<Login>("Login", closeOnEscapeKey);
     }
 
     private void ShowModalLogOut()
     {
         var closeOnEscapeKey = new DialogOptions() { CloseOnEscapeKey = true };
-        DialogService.ShowAsync<Logout>("Cerrar Sesion", closeOnEscapeKey);
+        DialogService.ShowAsync<Logout>("Logout", closeOnEscapeKey);
     }
 
     private void ShowModalRegister()
     {
         var closeOnEscapeKey = new DialogOptions() { CloseOnEscapeKey = true };
-        DialogService.ShowAsync<Register>("Registar Usuario", closeOnEscapeKey);
+        DialogService.ShowAsync<Register>("Register User", closeOnEscapeKey);
     }
 }
